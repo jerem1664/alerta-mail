@@ -1,0 +1,18 @@
+[alerta-mailer]
+key = 
+mail_to = wam@mail.fr
+mail_from = alerta@mail.fr
+dashboard_url = http://192.168.0.1:8000
+endpoint =  http://192.168.0.1:8080
+smtp_host = 127.0.0.1
+smtp_port = 25
+smtp_password = 
+smtp_use_ssl = False
+debug = True
+skip_mta = False
+email_type = html
+mail_localhost = mail.fr
+amqp_url = mongodb://127.0.0.1:27017/kombu
+amqp_topic = notify
+mail_template = /opt/alerta/alerta-contrib/integrations/mailer/email.tmpl
+mail_template_html = /opt/alerta/alerta-contrib/integrations/mailer/email.html.tmpl

@@ -1,0 +1,83 @@
+# Conf Alerta
+# http://docs.alerta.io/en/latest/configuration.html
+
+# BASIC
+DEBUG = False
+BASE_URL = ''
+LOGGER_NAME = 'alerta'
+LOG_FILE = '/var/log/alerta/alertad.log'
+
+# MONGODB
+MONGO_URI = 'mongodb://localhost:27017/monitoring'
+MONGO_DATABASE = 'monitoring'
+
+# CORS
+CORS_ORIGINS = [
+    'http://127.0.0.1',
+    'http://localhost',
+    'http://192.168.0.1:8000',
+    'http://192.168.0.2'
+]
+
+# AUTH
+AUTH_REQUIRED = False
+SECRET_KEY = 'monsecret'
+
+ADMIN_USERS = ['wam@mail.fr']
+CUSTOMER_VIEWS = False
+
+#OAUTH2_CLIENT_ID = None  # Google or GitHub OAuth2 client ID and secret
+#OAUTH2_CLIENT_SECRET = None
+#ALLOWED_EMAIL_DOMAINS = ['*']
+#ALLOWED_GITHUB_ORGS = ['*']
+#
+#GITLAB_URL = None
+#ALLOWED_GITLAB_GROUPS = ['*']
+
+TOKEN_EXPIRE_DAYS = 7
+
+# API
+QUERY_LIMIT = 10000
+HISTORY_LIMIT = 100
+API_KEY_EXPIRE_DAYS = 365
+
+AUTO_REFRESH_ALLOW = 'ON'
+SENDER_API_ALLOW = 'ON'
+
+# EMAIL
+EMAIL_VERIFICATION = False
+SMTP_HOST = 'localhost'
+SMTP_PORT = 25
+MAIL_FROM = 'alerta@mail.fr'
+SMTP_PASSWORD = ''
+
+# SUP
+BLACKOUT_DURATION = 86400
+
+SEVERITY_MAP = {
+    'security': 0,
+    'critical': 1,
+    'major': 2,
+    'minor': 3,
+    'warning': 4,
+    'indeterminate': 5,
+    'cleared': 5,
+    'normal': 5,
+    'ok': 5,
+    'informational': 6,
+    'debug': 7,
+    'trace': 8,
+    'unknown': 9
+}
+DEFAULT_SEVERITY = 'indeterminate'
+
+# Plug-ins
+PLUGINS = ['reject','amqp','alerta-mailer']
+
+# amqp https://github.com/alerta/alerta-contrib/tree/master/plugins/amqp
+AMQP_URL = 'mongodb://localhost:27017/kombu'
+AMQP_TOPIC = 'notify'
+
+ORIGIN_BLACKLIST = ['foo/bar$', '.*/qux']  # reject all foo alerts from bar, and everything from qux
+ALLOWED_ENVIRONMENTS = ['myenv']  # reject alerts without allowed environments
+
